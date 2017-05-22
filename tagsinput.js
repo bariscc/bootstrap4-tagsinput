@@ -8,7 +8,7 @@
 
   var defaultOptions = {
     tagClass: function(item) {
-      return 'badge badge-info';
+      return 'badge badge-default rounded-0';
     },
     focusClass: 'focus',
     itemValue: function(item) {
@@ -52,8 +52,8 @@
     this.placeholderText = element.hasAttribute('placeholder') ? this.$element.attr('placeholder') : '';
     this.inputSize = Math.max(1, this.placeholderText.length);
 
-    this.$container = $('<div class="bootstrap-tagsinput"></div>');
-    this.$input = $('<input type="text" placeholder="' + this.placeholderText + '"/>').appendTo(this.$container);
+    this.$container = $('<div class="bootstrap-tagsinput form-control rounded-0 clearfix"></div>');
+    this.$input = $('<input type="text" placeholder="' + this.placeholderText + '" class="form-control-sm"/>').appendTo(this.$container);
 
     this.$element.before(this.$container);
 
