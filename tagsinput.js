@@ -22,11 +22,11 @@
     },
     freeInput: true,
     addOnBlur: true,
-    maxTags: undefined,
-    maxChars: undefined,
-    confirmKeys: [13, 44],
+    maxTags: 10,
+    maxChars: 24,
+    confirmKeys: [13, 32, 44],
     delimiter: ',',
-    delimiterRegex: null,
+    delimiterRegex: /[^\wçÇğĞıİöÖşŞüÜ]+/,
     cancelConfirmKeysOnEmpty: false,
     onTagExists: function(item, $tag) {
       $tag.hide().fadeIn();
@@ -50,7 +50,7 @@
     this.multiple = (this.isSelect && element.hasAttribute('multiple'));
     this.objectItems = options && options.itemValue;
     this.placeholderText = element.hasAttribute('placeholder') ? this.$element.attr('placeholder') : '';
-    this.inputSize = Math.max(1, this.placeholderText.length);
+    this.inputSize = Math.max(40, this.placeholderText.length);
 
     this.$container = $('<div class="bootstrap-tagsinput form-control rounded-0 clearfix"></div>');
     this.$input = $('<input type="text" placeholder="' + this.placeholderText + '" class="form-control-sm"/>').appendTo(this.$container);
